@@ -1,0 +1,25 @@
+//
+// Prefix header for all source files of the 'Snappi' target in the 'Snappi' project
+//
+
+#ifdef __OBJC__
+  #import <Cocoa/Cocoa.h>
+
+#define ESC_KEYCODE            53
+
+#define SM__CONNECT_TITLE      @"Connect To..."
+
+#define EV__NAME               @"Evernote"
+#define EV__KEYCHAIN_ITEM_NAME @"Evernote OAuth"
+#define EV__CONSUMER_KEY       @"mmoutenot"
+#define EV__CONSUMER_SECRET    @"618a872dcaee5ea1"
+#define EV__USER_STORE_URI     @"https://www.evernote.com/edam/user"
+#define EV__DEV_TOKEN          @"S=s29:U=2f04ce:E=13f3513090a:C=137dd61dd0a:P=1cd:A=en-devtoken:H=870c3f166d4ab9d2cc6275d70664f84f"
+#define EV__REQUEST_URL        @"https://www.evernote.com/oauth"
+#define EV__ACCESS_URL         @"https://www.evernote.com/oauth"
+#define EV__AUTHORIZE_URL      @"https://www.evernote.com/OAuth.action?format=mobile"
+#define EV__SCOPE              @"https://www.evernote.com"
+#define EV__BADGE_NAME         @"evernote_service_badge.png"
+
+
+#endif
