@@ -35,6 +35,7 @@
     NSRect contentRect = NSMakeRect(xPos, yPos, __BASE_WIDTH, __BASE_HEIGHT);
     
     [self initializeServiceSelectWindowWithRect:contentRect];
+    
   }
   return self;
 }
