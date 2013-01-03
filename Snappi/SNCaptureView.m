@@ -95,7 +95,7 @@
 
 - (void)captureComplete:(NSImage *)captureImage {
   // redisplay the cursor
-  CGDisplayShowCursor(kCGDirectMainDisplay);
+//  CGDisplayShowCursor(kCGDirectMainDisplay);
   
   // reset member data
   NSRect rect = NSMakeRect(0, 0, 0, 0);
@@ -112,7 +112,7 @@
   CGContextClearRect(c, fullRect);
   
   // hide cursor
-  CGDisplayHideCursor(kCGDirectMainDisplay);
+//  CGDisplayHideCursor(kCGDirectMainDisplay);
   
   // colour the background white
   [[NSColor colorWithCalibratedWhite:1.0 alpha:0.6] set];

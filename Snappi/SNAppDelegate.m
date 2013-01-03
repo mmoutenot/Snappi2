@@ -12,6 +12,8 @@
 #import "SNTransparentWindow.h"
 #import "SNEvernoteController.h"
 #import "SNService.h"
+#import "SNUtility.h"
+#import "SNFile.h"
 
 @implementation SNAppDelegate
 
@@ -19,6 +21,7 @@
 @synthesize captureWindowController, serviceSelectorWindowController;
 @synthesize statusMenu, statusItem, statusView;
 @synthesize connections;
+@synthesize menuController, notificationController;
 
 typedef enum {
   SM__INVALID_TAG = -1,
@@ -36,6 +39,8 @@ OSStatus screenshotHotKeyHandler(EventHandlerCallRef nextHandler,
   if (self) {
     // initialize empty array of connections
     connections = [[NSMutableDictionary alloc] init];
+    menuController = [[SNMenuController alloc] init];
+    notificationController = [[SNNotificationController alloc] init];
   }
   return self;
 }
@@ -171,10 +176,22 @@ OSStatus screenshotHotKeyHandler(EventHandlerCallRef nextHandler, EventRef event
 }
 
 - (void)captureComplete:(NSImage *)captureImage{
-  if (!serviceSelectorWindowController){
-    serviceSelectorWindowController = [[SNServiceSelectorWindowController alloc] init];
-  }
-  [serviceSelectorWindowController showServiceSelectWithServices:connections];
+//  if (!serviceSelectorWindowController){
+//    serviceSelectorWindowController = [[SNServiceSelectorWindowController alloc] init];
+//  }
+//  [serviceSelectorWindowController showServiceSelectWithServices:connections];
+//  serviceSelectorWindowController = [[SNServiceSelectorWindowController alloc] initWithWindowNibName:@"ServiceSelect"];
+//  [serviceSelectorWindowController showServiceSelectWithServices:connections];
+  
+  NSString *uuid = [SNUtility UUIDString];
+  NSString *path = [NSString stringWithFormat:@"%@/%@.png", temporaryPath, uuid];
+  [SNUtility writeImage:captureImage toPath:path];
+  SNService *evernote = [connections objectForKey:EV__NAME];
+  SNEvernoteController *evernoteController = evernote.controller;
+  
+  SNFile *file = [[SNFile alloc] initWithPath:path];
+  NSArray *files = [[NSArray alloc] initWithObjects:file, nil];
+  [evernoteController upload:files isScreenshot:YES];
 }
 
 // connection functions

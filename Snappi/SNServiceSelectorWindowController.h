@@ -12,8 +12,8 @@
 
 @interface SNServiceSelectorWindowController : NSWindowController
 
-@property (strong, nonatomic) SNTransparentWindow   *serviceSelectWindow;
-@property (strong, nonatomic) SNServiceSelectorView *serviceSelectView;
+@property (strong) IBOutlet NSWindow *serviceSelectWindow;
+@property (weak) IBOutlet NSView *serviceSelectView;
 
 - (void)showServiceSelectWithServices:(NSDictionary *)services;
   

@@ -11,6 +11,9 @@
 		A665D776167D97EB002623E0 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A665D775167D97EB002623E0 /* Carbon.framework */; };
 		A671C3361686DBB0003B213B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A671C3351686DBB0003B213B /* WebKit.framework */; };
 		A671C33A1687ED4D003B213B /* SNServiceSelectorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A671C3391687ED4D003B213B /* SNServiceSelectorWindowController.m */; };
+		A67516A71693F11B0016E118 /* SNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A67516A61693F11B0016E118 /* SNFile.m */; };
+		A67516AB169403530016E118 /* libMMMarkdown-Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A67516A9169403530016E118 /* libMMMarkdown-Mac.a */; };
+		A67516AD169405470016E118 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67516AC169405470016E118 /* QuickLook.framework */; };
 		A6AB7D8C168A59AC00557147 /* SNServiceSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AB7D8B168A59AC00557147 /* SNServiceSelectorView.m */; };
 		A6AB7D8F168AB29D00557147 /* evernote_service_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AB7D8E168AB29D00557147 /* evernote_service_badge.png */; };
 		A6B7BB1A1685018C001540ED /* SNPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B7BB191685018C001540ED /* SNPoint.m */; };
@@ -57,6 +60,8 @@
 		A6E652AB167AFB04000388DE /* SNTransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E652AA167AFB04000388DE /* SNTransparentWindow.m */; };
 		A6E652B1167AFDFC000388DE /* SNUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E652B0167AFDFC000388DE /* SNUtility.m */; };
 		A6EFC0D91691516A00844B07 /* ServiceSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC0D81691516A00844B07 /* ServiceSelect.xib */; };
+		A6FC79D816956A7900958766 /* SNMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FC79D716956A7900958766 /* SNMenuController.m */; };
+		A6FC79DC1695739E00958766 /* SNNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FC79DB1695739E00958766 /* SNNotificationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +71,11 @@
 		A671C3351686DBB0003B213B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A671C3381687ED4D003B213B /* SNServiceSelectorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNServiceSelectorWindowController.h; sourceTree = "<group>"; };
 		A671C3391687ED4D003B213B /* SNServiceSelectorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNServiceSelectorWindowController.m; sourceTree = "<group>"; };
+		A67516A51693F11B0016E118 /* SNFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNFile.h; sourceTree = "<group>"; };
+		A67516A61693F11B0016E118 /* SNFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNFile.m; sourceTree = "<group>"; };
+		A67516A9169403530016E118 /* libMMMarkdown-Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMMMarkdown-Mac.a"; sourceTree = "<group>"; };
+		A67516AA169403530016E118 /* MMMarkdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMarkdown.h; sourceTree = "<group>"; };
+		A67516AC169405470016E118 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		A6AB7D8A168A59AC00557147 /* SNServiceSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNServiceSelectorView.h; sourceTree = "<group>"; };
 		A6AB7D8B168A59AC00557147 /* SNServiceSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNServiceSelectorView.m; sourceTree = "<group>"; };
 		A6AB7D8E168AB29D00557147 /* evernote_service_badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = evernote_service_badge.png; path = "Supporting Files/evernote_service_badge.png"; sourceTree = "<group>"; };
@@ -159,6 +169,10 @@
 		A6E652AF167AFDFC000388DE /* SNUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNUtility.h; sourceTree = "<group>"; };
 		A6E652B0167AFDFC000388DE /* SNUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNUtility.m; sourceTree = "<group>"; };
 		A6EFC0D81691516A00844B07 /* ServiceSelect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceSelect.xib; sourceTree = "<group>"; };
+		A6FC79D616956A7900958766 /* SNMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNMenuController.h; sourceTree = "<group>"; };
+		A6FC79D716956A7900958766 /* SNMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNMenuController.m; sourceTree = "<group>"; };
+		A6FC79DA1695739E00958766 /* SNNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNNotificationController.h; sourceTree = "<group>"; };
+		A6FC79DB1695739E00958766 /* SNNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNNotificationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,11 +180,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67516AD169405470016E118 /* QuickLook.framework in Frameworks */,
 				A671C3361686DBB0003B213B /* WebKit.framework in Frameworks */,
 				A6B7BBDB168551F0001540ED /* Security.framework in Frameworks */,
 				A6B7BBD7168551C9001540ED /* SystemConfiguration.framework in Frameworks */,
 				A665D776167D97EB002623E0 /* Carbon.framework in Frameworks */,
 				A6E65287167AF096000388DE /* Cocoa.framework in Frameworks */,
+				A67516AB169403530016E118 /* libMMMarkdown-Mac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +196,8 @@
 		A6B7BB1B168504D6001540ED /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A67516A9169403530016E118 /* libMMMarkdown-Mac.a */,
+				A67516AA169403530016E118 /* MMMarkdown.h */,
 				A6B7BC151686A8B7001540ED /* MAAttachedWindow.h */,
 				A6B7BC161686A8B7001540ED /* MAAttachedWindow.m */,
 				A6B7BBDC16855F97001540ED /* gtm-oauth */,
@@ -309,6 +327,7 @@
 		A6E65277167AF095000388DE = {
 			isa = PBXGroup;
 			children = (
+				A67516AC169405470016E118 /* QuickLook.framework */,
 				A671C3351686DBB0003B213B /* WebKit.framework */,
 				A6B7BBDA168551F0001540ED /* Security.framework */,
 				A6B7BBD8168551E4001540ED /* SecurityFoundation.framework */,
@@ -376,6 +395,12 @@
 				A6266C50168B18DE00CF2E72 /* SNService.h */,
 				A6266C51168B18DE00CF2E72 /* SNService.m */,
 				A6EFC0D81691516A00844B07 /* ServiceSelect.xib */,
+				A67516A51693F11B0016E118 /* SNFile.h */,
+				A67516A61693F11B0016E118 /* SNFile.m */,
+				A6FC79D616956A7900958766 /* SNMenuController.h */,
+				A6FC79D716956A7900958766 /* SNMenuController.m */,
+				A6FC79DA1695739E00958766 /* SNNotificationController.h */,
+				A6FC79DB1695739E00958766 /* SNNotificationController.m */,
 			);
 			path = Snappi;
 			sourceTree = "<group>";
@@ -502,6 +527,9 @@
 				A671C33A1687ED4D003B213B /* SNServiceSelectorWindowController.m in Sources */,
 				A6AB7D8C168A59AC00557147 /* SNServiceSelectorView.m in Sources */,
 				A6266C52168B18DE00CF2E72 /* SNService.m in Sources */,
+				A67516A71693F11B0016E118 /* SNFile.m in Sources */,
+				A6FC79D816956A7900958766 /* SNMenuController.m in Sources */,
+				A6FC79DC1695739E00958766 /* SNNotificationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +623,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snappi/Snappi-Prefix.pch";
 				INFOPLIST_FILE = "Snappi/Snappi-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Snappi/Other Sources\"",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -608,6 +640,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Snappi/Snappi-Prefix.pch";
 				INFOPLIST_FILE = "Snappi/Snappi-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Snappi/Other Sources\"",
+				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

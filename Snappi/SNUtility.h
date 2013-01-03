@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EDAMNoteStore.h"
 
 @interface SNUtility : NSObject
 
@@ -18,4 +19,22 @@
 
 + (NSRect)expandRect:(NSRect)rect byFactor:(NSInteger)i;
 
++ (NSString *)generateTitleForFiles:(NSArray *)files isScreenshot:(BOOL)isScreenshot;
+
++ (NSString *)generateTitleContextForFiles:(NSArray*) files;
+
++ (NSString *)getMimeTypeForExtension:(NSString *)ext;
+
++ (void)writeImage:(NSImage *)image toPath:(NSString *)path;
+
++ (NSString*)UUIDString;
+
++ (void)processLink:(NSString *)link;
+
++ (void) addMenuItemForNote:(EDAMNote *) note withLink:(NSString *)shareLink;
+
++ (NSString *) shortenURL:(NSString *) url;
+
++ (void) addToClipboard:(NSString *)shareLink;
+  
 @end
