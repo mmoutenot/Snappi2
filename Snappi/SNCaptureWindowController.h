@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Marshall Moutenot. All rights reserved.
 //
 
+#import <Carbon/Carbon.h>
 #import <Cocoa/Cocoa.h>
 #import "SNTransparentWindow.h"
 #import "SNCaptureView.h"
@@ -19,6 +20,8 @@
 @property (strong, nonatomic) SNCaptureView *captureView;
 
 - (void)showCaptureView;
+- (void)viewCaptureCancelled;
 - (void)viewCaptureComplete:(NSImage *)captureImage;
-
+- (void)keyDown:(NSEvent *)theEvent;
+  
 @end

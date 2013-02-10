@@ -22,7 +22,7 @@
   NSUserNotification *notification = [[NSUserNotification alloc] init];
   notification.title = title;
   notification.informativeText = infoText;
-  notification.soundName = NSUserNotificationDefaultSoundName;
+  notification.soundName = nil;
   [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
 }
 

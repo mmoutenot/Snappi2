@@ -12,8 +12,10 @@
 #import "SNDroppableView.h"
 #import "SNMenuController.h"
 #import "SNNotificationController.h"
+#import "SNFileQueue.h"
+#import "SNService.h"
 
-@interface SNAppDelegate : NSObject <NSApplicationDelegate>
+@interface SNAppDelegate : NSObject <NSApplicationDelegate, NSSharingServiceDelegate>
 {
   NSString *temporaryPath;
   
@@ -26,6 +28,10 @@
   
   SNMenuController *menuController;
   SNNotificationController *notoficationController;
+  
+  SNFileQueue *fileQueue;
+  
+  SNService *destination;
 }
 
 @property (strong, nonatomic) NSString *temporaryPath;
@@ -41,9 +47,14 @@
 @property (strong, nonatomic) SNMenuController         *menuController;
 @property (strong, nonatomic) SNNotificationController *notificationController;
 
+@property (strong, nonatomic) SNFileQueue *fileQueue;
+
+@property (strong, nonatomic) SNService *destination;
+
 - (void)connectToServiceSuccessWithName:(NSString *)connectionName;
 - (void)connectToServiceFailureWithName:(NSString *)connectionName;
 - (void)showCaptureView;
 - (void)captureComplete:(NSImage *)captureImage;
+- (void)registerScreenshotHotkey;
   
 @end

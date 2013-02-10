@@ -8,6 +8,7 @@
 
 #import "SNCaptureWindowController.h"
 #import "SNCaptureView.h"
+#import "SNAppDelegate.h"
 
 @implementation SNCaptureWindowController
 

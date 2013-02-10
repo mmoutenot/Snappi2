@@ -17,5 +17,6 @@
 
 
 -(void)mouseMoved:(NSEvent *)theEvent;
-
+-(void)keyDown:   (NSEvent *)theEvent;
+  
 @end

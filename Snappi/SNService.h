@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) NSImage *badge;
 @property (strong, nonatomic) id controller;
+@property (strong, nonatomic) NSString *name;
 
 @end

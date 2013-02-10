@@ -53,7 +53,7 @@
 
 - (NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len {
 
-  NSInteger bytesRead = 0;
+  NSUInteger bytesRead = 0;
   NSUInteger bytesRemaining = len;
 
   // read bytes from the currently-indexed array
@@ -73,7 +73,7 @@
     dataOffset_ += bytesToCopy;
     bytesRemaining -= bytesToCopy;
 
-    if (dataOffset_ == (long long)dataLen) {
+    if (dataOffset_ == dataLen) {
       dataOffset_ = 0;
       arrayIndex_++;
     }

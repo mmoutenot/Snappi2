@@ -17,7 +17,7 @@
 // requests. http://oauth.net/core/1.0a/
 //
 // Users can rely on +authForInstalledApp for creating a complete authentication
-// object.
+// object for use with Google's OAuth protocol.
 //
 // The user (typically the GTMOAuthSignIn object) can call the methods
 //  - (void)setKeysForResponseData:(NSData *)data;
@@ -45,6 +45,8 @@
 #define _EXTERN extern
 #define _INITIALIZE_AS(x)
 #endif
+
+_EXTERN NSString* const kGTMOAuthServiceProviderGoogle _INITIALIZE_AS(@"Google");
 
 _EXTERN NSString* const kGTMOAuthSignatureMethodHMAC_SHA1 _INITIALIZE_AS(@"HMAC-SHA1");
 
@@ -126,7 +128,7 @@ _EXTERN NSString* const kGTMOAuthSignatureMethodRSA_SHA1  _INITIALIZE_AS(@"RSA-S
 @property (nonatomic, copy) NSString *realm;
 @property (nonatomic, copy) NSString *privateKey;
 
-// service identifier, like "Twitter"; not used for authentication or signing
+// service identifier, like "Google"; not used for authentication or signing
 @property (nonatomic, copy) NSString *serviceProvider;
 
 // user email and verified status; not used for authentication or signing

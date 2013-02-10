@@ -11,6 +11,7 @@
 #import "EDAMNoteStore.h"
 #import "EDAMUserStore.h"
 #import "EDAMErrors.h"
+#import "SNUploadClosure.h"
 
 @interface SNEvernoteController : NSObject {
   GTMOAuthAuthentication *auth;
@@ -26,8 +27,11 @@
 @property (strong, nonatomic) NSURL *noteStoreUri;
 @property (strong, nonatomic) NSString *noteShareUri;
 
-- (void)showLogin;
++ (SNEvernoteController *)sharedInstance;
 
-- (void)upload:(NSArray *)files isScreenshot:(BOOL)isScreenshot;
+  
+- (void)showLogin;
+- (GTMOAuthAuthentication *)getOrCreateAuth;
+- (void)upload:(SNUploadClosure *)uploadCl;
   
 @end

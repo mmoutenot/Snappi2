@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A6266C52168B18DE00CF2E72 /* SNService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6266C51168B18DE00CF2E72 /* SNService.m */; };
+		A65B497A16B2691500FA9F3C /* SNUploadClosure.m in Sources */ = {isa = PBXBuildFile; fileRef = A65B497916B2691500FA9F3C /* SNUploadClosure.m */; };
 		A665D776167D97EB002623E0 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A665D775167D97EB002623E0 /* Carbon.framework */; };
+		A6702B2416B4F60C0029784E /* SNFileQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A6702B2316B4F60C0029784E /* SNFileQueue.m */; };
 		A671C3361686DBB0003B213B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A671C3351686DBB0003B213B /* WebKit.framework */; };
 		A671C33A1687ED4D003B213B /* SNServiceSelectorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A671C3391687ED4D003B213B /* SNServiceSelectorWindowController.m */; };
 		A67516A71693F11B0016E118 /* SNFile.m in Sources */ = {isa = PBXBuildFile; fileRef = A67516A61693F11B0016E118 /* SNFile.m */; };
@@ -48,6 +50,9 @@
 		A6B7BC1216857175001540ED /* snappi_icon_18.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B7BC1116857175001540ED /* snappi_icon_18.png */; };
 		A6B7BC141686A536001540ED /* SNDroppableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B7BC131686A536001540ED /* SNDroppableView.m */; };
 		A6B7BC171686A8B7001540ED /* MAAttachedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B7BC161686A8B7001540ED /* MAAttachedWindow.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A6C600DE16C6C21100C495E8 /* snappi_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C600DD16C6C21100C495E8 /* snappi_icon.png */; };
+		A6C600E116C6C22300C495E8 /* snappi_icon_g_250.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C600E016C6C22300C495E8 /* snappi_icon_g_250.png */; };
+		A6C600E316C6C24300C495E8 /* snappi_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A6C600E216C6C24300C495E8 /* snappi_icon.icns */; };
 		A6C845201682B36900E552D3 /* SNCaptureWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C8451E1682B36900E552D3 /* SNCaptureWindowController.m */; };
 		A6CE94E7168B1E0700C7B781 /* add_service_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = A6CE94E6168B1E0700C7B781 /* add_service_badge.png */; };
 		A6E65287167AF096000388DE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6E65286167AF096000388DE /* Cocoa.framework */; };
@@ -60,6 +65,7 @@
 		A6E652AB167AFB04000388DE /* SNTransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E652AA167AFB04000388DE /* SNTransparentWindow.m */; };
 		A6E652B1167AFDFC000388DE /* SNUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E652B0167AFDFC000388DE /* SNUtility.m */; };
 		A6EFC0D91691516A00844B07 /* ServiceSelect.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6EFC0D81691516A00844B07 /* ServiceSelect.xib */; };
+		A6F529F6169A9CA800C1A5C3 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6F529F5169A9CA800C1A5C3 /* Defaults.plist */; };
 		A6FC79D816956A7900958766 /* SNMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FC79D716956A7900958766 /* SNMenuController.m */; };
 		A6FC79DC1695739E00958766 /* SNNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FC79DB1695739E00958766 /* SNNotificationController.m */; };
 /* End PBXBuildFile section */
@@ -67,7 +73,11 @@
 /* Begin PBXFileReference section */
 		A6266C50168B18DE00CF2E72 /* SNService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNService.h; sourceTree = "<group>"; };
 		A6266C51168B18DE00CF2E72 /* SNService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNService.m; sourceTree = "<group>"; };
+		A65B497816B2691500FA9F3C /* SNUploadClosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNUploadClosure.h; sourceTree = "<group>"; };
+		A65B497916B2691500FA9F3C /* SNUploadClosure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNUploadClosure.m; sourceTree = "<group>"; };
 		A665D775167D97EB002623E0 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		A6702B2216B4F60C0029784E /* SNFileQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNFileQueue.h; sourceTree = "<group>"; };
+		A6702B2316B4F60C0029784E /* SNFileQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNFileQueue.m; sourceTree = "<group>"; };
 		A671C3351686DBB0003B213B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A671C3381687ED4D003B213B /* SNServiceSelectorWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNServiceSelectorWindowController.h; sourceTree = "<group>"; };
 		A671C3391687ED4D003B213B /* SNServiceSelectorWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNServiceSelectorWindowController.m; sourceTree = "<group>"; };
@@ -145,6 +155,9 @@
 		A6B7BC131686A536001540ED /* SNDroppableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNDroppableView.m; sourceTree = "<group>"; };
 		A6B7BC151686A8B7001540ED /* MAAttachedWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAAttachedWindow.h; path = Snappi/MAAttachedWindow.h; sourceTree = SOURCE_ROOT; };
 		A6B7BC161686A8B7001540ED /* MAAttachedWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAAttachedWindow.m; path = Snappi/MAAttachedWindow.m; sourceTree = SOURCE_ROOT; };
+		A6C600DD16C6C21100C495E8 /* snappi_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snappi_icon.png; sourceTree = "<group>"; };
+		A6C600E016C6C22300C495E8 /* snappi_icon_g_250.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snappi_icon_g_250.png; sourceTree = "<group>"; };
+		A6C600E216C6C24300C495E8 /* snappi_icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = snappi_icon.icns; sourceTree = "<group>"; };
 		A6C8451D1682B36900E552D3 /* SNCaptureWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNCaptureWindowController.h; sourceTree = "<group>"; };
 		A6C8451E1682B36900E552D3 /* SNCaptureWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNCaptureWindowController.m; sourceTree = "<group>"; };
 		A6CE94E6168B1E0700C7B781 /* add_service_badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_service_badge.png; path = "Supporting Files/add_service_badge.png"; sourceTree = "<group>"; };
@@ -169,6 +182,7 @@
 		A6E652AF167AFDFC000388DE /* SNUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNUtility.h; sourceTree = "<group>"; };
 		A6E652B0167AFDFC000388DE /* SNUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNUtility.m; sourceTree = "<group>"; };
 		A6EFC0D81691516A00844B07 /* ServiceSelect.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceSelect.xib; sourceTree = "<group>"; };
+		A6F529F5169A9CA800C1A5C3 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		A6FC79D616956A7900958766 /* SNMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNMenuController.h; sourceTree = "<group>"; };
 		A6FC79D716956A7900958766 /* SNMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNMenuController.m; sourceTree = "<group>"; };
 		A6FC79DA1695739E00958766 /* SNNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNNotificationController.h; sourceTree = "<group>"; };
@@ -327,6 +341,9 @@
 		A6E65277167AF095000388DE = {
 			isa = PBXGroup;
 			children = (
+				A6C600E216C6C24300C495E8 /* snappi_icon.icns */,
+				A6C600E016C6C22300C495E8 /* snappi_icon_g_250.png */,
+				A6C600DD16C6C21100C495E8 /* snappi_icon.png */,
 				A67516AC169405470016E118 /* QuickLook.framework */,
 				A671C3351686DBB0003B213B /* WebKit.framework */,
 				A6B7BBDA168551F0001540ED /* Security.framework */,
@@ -370,37 +387,41 @@
 		A6E6528C167AF096000388DE /* Snappi */ = {
 			isa = PBXGroup;
 			children = (
-				A6B7BC0E16856FFA001540ED /* SNDroppableView.h */,
-				A6B7BC131686A536001540ED /* SNDroppableView.m */,
 				A6E6529B167AF096000388DE /* MainMenu.xib */,
+				A6EFC0D81691516A00844B07 /* ServiceSelect.xib */,
 				A6E65298167AF096000388DE /* SNAppDelegate.h */,
 				A6E65299167AF096000388DE /* SNAppDelegate.m */,
 				A6E652A3167AF0DD000388DE /* SNCaptureView.h */,
 				A6E652A4167AF0DD000388DE /* SNCaptureView.m */,
 				A6C8451D1682B36900E552D3 /* SNCaptureWindowController.h */,
 				A6C8451E1682B36900E552D3 /* SNCaptureWindowController.m */,
+				A6B7BC0E16856FFA001540ED /* SNDroppableView.h */,
+				A6B7BC131686A536001540ED /* SNDroppableView.m */,
 				A6B7BB4F16850C4B001540ED /* SNEvernoteController.h */,
 				A6B7BB5016850C4B001540ED /* SNEvernoteController.m */,
-				A6E652AC167AFBB0000388DE /* SNPoint.h */,
-				A6B7BB191685018C001540ED /* SNPoint.m */,
-				A6E652A9167AFB04000388DE /* SNTransparentWindow.h */,
-				A6E652AA167AFB04000388DE /* SNTransparentWindow.m */,
-				A6E652AF167AFDFC000388DE /* SNUtility.h */,
-				A6E652B0167AFDFC000388DE /* SNUtility.m */,
-				A6E6528D167AF096000388DE /* Supporting Files */,
-				A671C3391687ED4D003B213B /* SNServiceSelectorWindowController.m */,
-				A671C3381687ED4D003B213B /* SNServiceSelectorWindowController.h */,
-				A6AB7D8A168A59AC00557147 /* SNServiceSelectorView.h */,
-				A6AB7D8B168A59AC00557147 /* SNServiceSelectorView.m */,
-				A6266C50168B18DE00CF2E72 /* SNService.h */,
-				A6266C51168B18DE00CF2E72 /* SNService.m */,
-				A6EFC0D81691516A00844B07 /* ServiceSelect.xib */,
 				A67516A51693F11B0016E118 /* SNFile.h */,
 				A67516A61693F11B0016E118 /* SNFile.m */,
+				A6702B2216B4F60C0029784E /* SNFileQueue.h */,
+				A6702B2316B4F60C0029784E /* SNFileQueue.m */,
 				A6FC79D616956A7900958766 /* SNMenuController.h */,
 				A6FC79D716956A7900958766 /* SNMenuController.m */,
 				A6FC79DA1695739E00958766 /* SNNotificationController.h */,
 				A6FC79DB1695739E00958766 /* SNNotificationController.m */,
+				A6E652AC167AFBB0000388DE /* SNPoint.h */,
+				A6B7BB191685018C001540ED /* SNPoint.m */,
+				A6266C50168B18DE00CF2E72 /* SNService.h */,
+				A6266C51168B18DE00CF2E72 /* SNService.m */,
+				A6AB7D8A168A59AC00557147 /* SNServiceSelectorView.h */,
+				A6AB7D8B168A59AC00557147 /* SNServiceSelectorView.m */,
+				A671C3381687ED4D003B213B /* SNServiceSelectorWindowController.h */,
+				A671C3391687ED4D003B213B /* SNServiceSelectorWindowController.m */,
+				A6E652A9167AFB04000388DE /* SNTransparentWindow.h */,
+				A6E652AA167AFB04000388DE /* SNTransparentWindow.m */,
+				A65B497816B2691500FA9F3C /* SNUploadClosure.h */,
+				A65B497916B2691500FA9F3C /* SNUploadClosure.m */,
+				A6E652AF167AFDFC000388DE /* SNUtility.h */,
+				A6E652B0167AFDFC000388DE /* SNUtility.m */,
+				A6E6528D167AF096000388DE /* Supporting Files */,
 			);
 			path = Snappi;
 			sourceTree = "<group>";
@@ -416,6 +437,7 @@
 				A6E65292167AF096000388DE /* main.m */,
 				A6E65294167AF096000388DE /* Snappi-Prefix.pch */,
 				A6E65295167AF096000388DE /* Credits.rtf */,
+				A6F529F5169A9CA800C1A5C3 /* Defaults.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -480,6 +502,10 @@
 				A6AB7D8F168AB29D00557147 /* evernote_service_badge.png in Resources */,
 				A6CE94E7168B1E0700C7B781 /* add_service_badge.png in Resources */,
 				A6EFC0D91691516A00844B07 /* ServiceSelect.xib in Resources */,
+				A6F529F6169A9CA800C1A5C3 /* Defaults.plist in Resources */,
+				A6C600DE16C6C21100C495E8 /* snappi_icon.png in Resources */,
+				A6C600E116C6C22300C495E8 /* snappi_icon_g_250.png in Resources */,
+				A6C600E316C6C24300C495E8 /* snappi_icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +556,8 @@
 				A67516A71693F11B0016E118 /* SNFile.m in Sources */,
 				A6FC79D816956A7900958766 /* SNMenuController.m in Sources */,
 				A6FC79DC1695739E00958766 /* SNNotificationController.m in Sources */,
+				A65B497A16B2691500FA9F3C /* SNUploadClosure.m in Sources */,
+				A6702B2416B4F60C0029784E /* SNFileQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

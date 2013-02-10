@@ -7,7 +7,7 @@
 
 #define ESC_KEYCODE            53
 
-#define SM__CONNECT_TITLE      @"Connect To..."
+#define SM__CONNECT_TITLE      @"Set Destination..."
 
 #define EV__NAME               @"Evernote"
 #define EV__KEYCHAIN_ITEM_NAME @"Evernote OAuth"
@@ -20,6 +20,8 @@
 #define EV__AUTHORIZE_URL      @"https://www.evernote.com/OAuth.action?format=mobile"
 #define EV__SCOPE              @"https://www.evernote.com"
 #define EV__BADGE_NAME         @"evernote_service_badge.png"
+
+#define TW__NAME               @"Twitter"
 
 
 #endif
