@@ -2,9 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>notebookName</key>
-	<string>Snappi</string>
-	<key>destination</key>
-	<string>Evernote</string>
+	<key>AllNotifications</key>
+	<array>
+		<string>notification</string>
+	</array>
+	<key>TicketVersion</key>
+	<integer>1</integer>
 </dict>
 </plist>

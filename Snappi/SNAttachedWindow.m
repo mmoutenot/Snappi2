@@ -1,17 +1,17 @@
 //
-//  MAAttachedWindow.m
+//  SNAttachedWindow.m
 //
 //  Created by Matt Gemmell on 27/09/2007.
 //  Copyright 2007 Magic Aubergine.
 //
 
-#import "MAAttachedWindow.h"
+#import "SNAttachedWindow.h"
 
-#define MAATTACHEDWINDOW_DEFAULT_BACKGROUND_COLOR [NSColor colorWithCalibratedWhite:0.8 alpha:0.90]
-#define MAATTACHEDWINDOW_DEFAULT_BORDER_COLOR [NSColor whiteColor]
-#define MAATTACHEDWINDOW_SCALE_FACTOR [[NSScreen mainScreen] userSpaceScaleFactor]
+#define SNAttachedWindow_DEFAULT_BACKGROUND_COLOR [NSColor colorWithCalibratedWhite:0.8 alpha:0.90]
+#define SNAttachedWindow_DEFAULT_BORDER_COLOR [NSColor whiteColor]
+#define SNAttachedWindow_SCALE_FACTOR [[NSScreen mainScreen] userSpaceScaleFactor]
 
-@interface MAAttachedWindow (MAPrivateMethods)
+@interface SNAttachedWindow (MAPrivateMethods)
 
 // Geometry
 - (void)_updateGeometry;
@@ -27,13 +27,13 @@
 
 @end
 
-@implementation MAAttachedWindow
+@implementation SNAttachedWindow
 
 
 #pragma mark Initializers
 
 
-- (MAAttachedWindow *)initWithView:(NSView *)view 
+- (SNAttachedWindow *)initWithView:(NSView *)view 
                    attachedToPoint:(NSPoint)point 
                           inWindow:(NSWindow *)window 
                             onSide:(MAWindowPosition)side 
@@ -68,8 +68,8 @@
         [self useOptimizedDrawing:YES];
         
         // Set up some sensible defaults for display.
-        _MABackgroundColor = [MAATTACHEDWINDOW_DEFAULT_BACKGROUND_COLOR copy];
-        borderColor = [MAATTACHEDWINDOW_DEFAULT_BORDER_COLOR copy];
+        _MABackgroundColor = [SNAttachedWindow_DEFAULT_BACKGROUND_COLOR copy];
+        borderColor = [SNAttachedWindow_DEFAULT_BORDER_COLOR copy];
         borderWidth = 2.0;
         viewMargin = 2.0;
         arrowBaseWidth = 20.0;
@@ -103,7 +103,7 @@
 }
 
 
-- (MAAttachedWindow *)initWithView:(NSView *)view 
+- (SNAttachedWindow *)initWithView:(NSView *)view 
                    attachedToPoint:(NSPoint)point 
                           inWindow:(NSWindow *)window 
                         atDistance:(float)distance
@@ -114,7 +114,7 @@
 }
 
 
-- (MAAttachedWindow *)initWithView:(NSView *)view 
+- (SNAttachedWindow *)initWithView:(NSView *)view 
                    attachedToPoint:(NSPoint)point 
                             onSide:(MAWindowPosition)side 
                         atDistance:(float)distance
@@ -125,7 +125,7 @@
 }
 
 
-- (MAAttachedWindow *)initWithView:(NSView *)view 
+- (SNAttachedWindow *)initWithView:(NSView *)view 
                    attachedToPoint:(NSPoint)point 
                         atDistance:(float)distance
 {
@@ -135,7 +135,7 @@
 }
 
 
-- (MAAttachedWindow *)initWithView:(NSView *)view 
+- (SNAttachedWindow *)initWithView:(NSView *)view 
                    attachedToPoint:(NSPoint)point 
                           inWindow:(NSWindow *)window
 {
@@ -145,7 +145,7 @@
 }
 
 
-- (MAAttachedWindow *)initWithView:(NSView *)view 
+- (SNAttachedWindow *)initWithView:(NSView *)view 
                    attachedToPoint:(NSPoint)point 
                             onSide:(MAWindowPosition)side
 {
@@ -155,7 +155,7 @@
 }
 
 
-- (MAAttachedWindow *)initWithView:(NSView *)view 
+- (SNAttachedWindow *)initWithView:(NSView *)view 
                    attachedToPoint:(NSPoint)point
 {
     return [self initWithView:view attachedToPoint:point 
@@ -183,18 +183,18 @@
     contentRect.size = [_view frame].size;
     
     // Account for viewMargin.
-    _viewFrame = NSMakeRect(viewMargin * MAATTACHEDWINDOW_SCALE_FACTOR,
-                            viewMargin * MAATTACHEDWINDOW_SCALE_FACTOR,
+    _viewFrame = NSMakeRect(viewMargin * SNAttachedWindow_SCALE_FACTOR,
+                            viewMargin * SNAttachedWindow_SCALE_FACTOR,
                             [_view frame].size.width, [_view frame].size.height);
     contentRect = NSInsetRect(contentRect, 
-                              -viewMargin * MAATTACHEDWINDOW_SCALE_FACTOR, 
-                              -viewMargin * MAATTACHEDWINDOW_SCALE_FACTOR);
+                              -viewMargin * SNAttachedWindow_SCALE_FACTOR, 
+                              -viewMargin * SNAttachedWindow_SCALE_FACTOR);
     
     // Account for arrowHeight in new window frame.
     // Note: we always leave room for the arrow, even if it currently set to 
     // not be shown. This is so it can easily be toggled whilst the window 
     // is visible, without altering the window's frame origin point.
-    float scaledArrowHeight = arrowHeight * MAATTACHEDWINDOW_SCALE_FACTOR;
+    float scaledArrowHeight = arrowHeight * SNAttachedWindow_SCALE_FACTOR;
     switch (_side) {
         case MAPositionLeft:
         case MAPositionLeftTop:
@@ -317,10 +317,10 @@
     }
     NSPoint pointOnScreen = (_window) ? [_window convertBaseToScreen:_point] : _point;
     NSSize viewSize = [_view frame].size;
-    viewSize.width += (viewMargin * MAATTACHEDWINDOW_SCALE_FACTOR) * 2.0;
-    viewSize.height += (viewMargin * MAATTACHEDWINDOW_SCALE_FACTOR) * 2.0;
+    viewSize.width += (viewMargin * SNAttachedWindow_SCALE_FACTOR) * 2.0;
+    viewSize.height += (viewMargin * SNAttachedWindow_SCALE_FACTOR) * 2.0;
     MAWindowPosition side = MAPositionBottom; // By default, position us centered below.
-    float scaledArrowHeight = (arrowHeight * MAATTACHEDWINDOW_SCALE_FACTOR) + _distance;
+    float scaledArrowHeight = (arrowHeight * SNAttachedWindow_SCALE_FACTOR) + _distance;
     
     // We'd like to display directly below the specified point, since this gives a 
     // sense of a relationship between the point and this window. Check there's room.
@@ -412,7 +412,7 @@
 - (float)_arrowInset
 {
     float cornerInset = (drawsRoundCornerBesideArrow) ? cornerRadius : 0;
-    return (cornerInset + (arrowBaseWidth / 2.0)) * MAATTACHEDWINDOW_SCALE_FACTOR;
+    return (cornerInset + (arrowBaseWidth / 2.0)) * SNAttachedWindow_SCALE_FACTOR;
 }
 
 
@@ -452,7 +452,7 @@
     // Draw border if appropriate.
     if (borderWidth > 0) {
         // Double the borderWidth since we're drawing inside the path.
-        [bgPath setLineWidth:(borderWidth * 2.0) * MAATTACHEDWINDOW_SCALE_FACTOR];
+        [bgPath setLineWidth:(borderWidth * 2.0) * SNAttachedWindow_SCALE_FACTOR];
         [borderColor set];
         [bgPath stroke];
     }
@@ -476,7 +476,7 @@
      6. cornerRadius
      */
     
-    float scaleFactor = MAATTACHEDWINDOW_SCALE_FACTOR;
+    float scaleFactor = SNAttachedWindow_SCALE_FACTOR;
     float scaledRadius = cornerRadius * scaleFactor;
     float scaledArrowWidth = arrowBaseWidth * scaleFactor;
     float halfArrowWidth = scaledArrowWidth / 2.0;
@@ -663,7 +663,7 @@
         return;
     }
     
-    float scaleFactor = MAATTACHEDWINDOW_SCALE_FACTOR;
+    float scaleFactor = SNAttachedWindow_SCALE_FACTOR;
     float scaledArrowWidth = arrowBaseWidth * scaleFactor;
     float halfArrowWidth = scaledArrowWidth / 2.0;
     float scaledArrowHeight = arrowHeight * scaleFactor;
@@ -768,6 +768,25 @@
     }
 }
 
+//- (void)fadeInAndMakeKeyAndOrderFront:(BOOL)orderFront {
+//  [self setAlphaValue:0.f];
+//  if (orderFront) {
+//    [self makeKeyAndOrderFront:nil];
+//  }
+//  [NSAnimationContext beginGrouping];
+//  [[NSAnimationContext currentContext] setDuration:0.1f];
+//  [[self animator] setAlphaValue:1.f];
+//  [NSAnimationContext endGrouping];
+//}
+//
+//- (void)fadeOutAndOrderOut:(BOOL)orderOut {
+//  if (orderOut) {
+//    NSTimeInterval delay = [[NSAnimationContext currentContext] duration] + 0.1;
+//    [self performSelector:@selector(orderOut:) withObject:nil afterDelay:delay];
+//  }
+//  [[self animator] setAlphaValue:0.0];
+//}
+
 
 # pragma mark Notification handlers
 
@@ -779,7 +798,6 @@
 
 
 #pragma mark Accessors
-
 
 - (NSColor *)windowBackgroundColor {
     return [[_MABackgroundColor retain] autorelease];

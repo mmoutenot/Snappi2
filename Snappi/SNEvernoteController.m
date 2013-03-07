@@ -17,8 +17,6 @@
 
 @implementation SNEvernoteController
 
-@synthesize auth, delegate, noteStore, noteStoreUri;
-
 static SNEvernoteController *sharedEvernoteManager = nil;
 
 NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
@@ -49,7 +47,7 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
   GTMOAuthAuthentication *a;
   a = [GTMOAuthWindowController authForGoogleFromKeychainForName:EV__KEYCHAIN_ITEM_NAME];
   if ([a canAuthorize]){
-    [delegate performSelector:@selector(connectToServiceSuccessWithName:) withObject:EV__NAME];
+    [_delegate performSelector:@selector(connectToServiceSuccessWithName:) withObject:EV__NAME];
     NSLog(@"Authorized with Evernote");
   }
   else {
@@ -57,7 +55,7 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
     // handle loging in or not
     if ([a canAuthorize]) {
       //update the user iterface to reflect what is auth'd
-      [delegate performSelector:@selector(connectToServiceSuccessWithName:) withObject:EV__NAME];
+      [_delegate performSelector:@selector(connectToServiceSuccessWithName:) withObject:EV__NAME];
       NSLog(@"Authorized with Evernote");
     } else {
       a = [self createAuth];
@@ -140,15 +138,35 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
   //failed
 }
 
+
+- (void)signOut {
+  if ([[_auth serviceProvider] isEqual:kGTMOAuthServiceProviderGoogle]){
+    // remove the token from Google's servers
+    [GTMOAuthWindowController revokeTokenForGoogleAuthentication:_auth];
+  }
+  // remove the stored Evernote authentication from the keychain, if any
+  [GTMOAuthWindowController removeParamsFromKeychainForName:EV__KEYCHAIN_ITEM_NAME];
+
+  // discard our retains authentication object
+  _auth = nil;
+  NSLog(@"Logged out from Evernote");
+}
+
 // NOTE GENERATION FUNCTIONS
 
 - (void)upload:(SNUploadClosure *)uploadCl{
+  NSString *notebookName = [[NSUserDefaults standardUserDefaults] objectForKey:@"notebookName"];
   NSMutableArray *resources = [[NSMutableArray alloc] init];
   NSString *ENML = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?> <!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\"> <en-note>";
   EDAMNote *note = [EDAMNote alloc];
   [note setTitle:[SNUtility generateTitleContextForFiles:uploadCl.files]];
-  for (SNFile *file in uploadCl.files) {
-    NSData *fileData = [[NSData alloc] initWithContentsOfFile: file.path];
+  for (int i = 0; i < [uploadCl.files count]; i++){
+    SNFile *file = [uploadCl.files objectAtIndex:i];
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:file.path isDirectory:NO];
+    NSString *fileURLPath = [fileURL path];
+//    NSData *fileData = [[NSData alloc] initWithContentsOfURL:file.path];;
+//    NSData *fileData = [[NSData alloc] initWithContentsOfFile:file.path];
+    NSData *fileData = [NSData dataWithContentsOfFile:fileURLPath];
     EDAMResource *resource = [[EDAMResource alloc] init];
     NSString * hash;
     if (fileData) {
@@ -172,7 +190,7 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
   [note setTitle:[SNUtility generateTitleForFiles:uploadCl.files isScreenshot:uploadCl.isScreenshot]];
   [note setContent:ENML];
   [note setResources:resources];
-  [note setNotebookGuid:[[SNEvernoteController sharedInstance] getOrCreateNotebook:@"Snappi"]];
+  [note setNotebookGuid:[[SNEvernoteController sharedInstance] getOrCreateNotebook:notebookName]];
   
   EDAMNote *createdNote;
   @try {
@@ -192,7 +210,7 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
 }
 
 - (void) connect {
-  if (noteStore == nil) {
+  if (_noteStore == nil) {
     // In the case we are not connected we don't have an authToken
     // Instantiate the Thrift objects
     NSURL * NSURLuserStoreUri = [[NSURL alloc] initWithString: userStoreUri];
@@ -210,16 +228,16 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
       return;
     }
     
-    noteStoreUri = [[NSURL alloc] initWithString:[userStore getNoteStoreUrl:[SNEvernoteController sharedInstance].auth.token]];
+    _noteStoreUri = [[NSURL alloc] initWithString:[userStore getNoteStoreUrl:[SNEvernoteController sharedInstance].auth.token]];
     
     [SNEvernoteController sharedInstance].noteShareUri =
-        [[NSString alloc] initWithString: [[noteStoreUri absoluteString] stringByReplacingOccurrencesOfString:@"notestore" withString:@"sh"]];
+        [[NSString alloc] initWithString: [[_noteStoreUri absoluteString] stringByReplacingOccurrencesOfString:@"notestore" withString:@"sh"]];
     
     
     // Initializing the NoteStore client
-    THTTPClient *noteStoreHttpClient = [[THTTPClient alloc] initWithURL:noteStoreUri];
+    THTTPClient *noteStoreHttpClient = [[THTTPClient alloc] initWithURL:_noteStoreUri];
     TBinaryProtocol *noteStoreProtocol = [[TBinaryProtocol alloc] initWithTransport:noteStoreHttpClient];
-    noteStore = [[EDAMNoteStoreClient alloc] initWithProtocol:noteStoreProtocol];
+    _noteStore = [[EDAMNoteStoreClient alloc] initWithProtocol:noteStoreProtocol];
   }
 }
 
@@ -236,18 +254,18 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
 
 - (EDAMNote*) createNote: (EDAMNote *) note {
   [self connect];
-  return [noteStore createNote:[SNEvernoteController sharedInstance].auth.token :note];
+  return [_noteStore createNote:[SNEvernoteController sharedInstance].auth.token :note];
 }
 
 - (NSString*) getShareKey:(EDAMNote *)note{
  [self connect];
-  return [noteStore shareNote:[SNEvernoteController sharedInstance].auth.token :note.guid];
+  return [_noteStore shareNote:[SNEvernoteController sharedInstance].auth.token :note.guid];
 }
 
 - (EDAMNotebook*) createNotebook: (EDAMNotebook *) notebook {
  // Checking the connection
  [[SNEvernoteController sharedInstance] connect];
- return[noteStore createNotebook:[SNEvernoteController sharedInstance].auth.token :notebook];
+ return[_noteStore createNotebook:[SNEvernoteController sharedInstance].auth.token :notebook];
 }
 
 - (NSString *) getOrCreateNotebook:(NSString *) notebookName{
@@ -259,12 +277,20 @@ NSString * const userStoreUri = @"https://www.evernote.com/edam/user";
     nguid = [test guid];
   }
   @catch ( NSException *e ) {
-    NSArray *notebooks = [[SNEvernoteController sharedInstance] listNotebooks];
-    for (id book in notebooks){
-      NSLog(@"%@  =  %@", [book name], notebook.name);
-      if ([[book name]isEqualToString: notebook.name]) {
-        nguid = [book guid];
+    @try {
+      NSArray *notebooks = [[SNEvernoteController sharedInstance] listNotebooks];
+      for (id book in notebooks){
+        NSLog(@"%@  =  %@", [book name], notebook.name);
+        if ([[book name]isEqualToString: notebook.name]) {
+          nguid = [book guid];
+        }
       }
+    }
+    @catch (NSException *e) {
+      nguid = @"";
+      [[SNNotificationController sharedNotificationController] showNotificationWithTitle:@"Evernote Error" informationText:@"Please try logging out and back in under \"Evernote Options\" in the menu"];
+      [self signOut];
+      [self showLogin];
     }
     NSLog(@"GUID: %@",nguid);
   }

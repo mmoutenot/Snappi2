@@ -13,4 +13,12 @@
 @synthesize files;
 @synthesize isScreenshot;
 
+-(id) init{
+  self = [super init];
+  if (self){
+    self.files = [[NSMutableArray alloc] initWithCapacity:3];
+  }
+  return self;
+}
+
 @end

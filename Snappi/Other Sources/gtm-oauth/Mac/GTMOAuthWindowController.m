@@ -582,8 +582,8 @@ decisionListener:(id<WebPolicyDecisionListener>)listener {
   UInt32 passwordBuffLength = 0;
 
   OSStatus err = SecKeychainFindGenericPassword(defaultKeychain,
-                                      strlen(utf8ServiceName), utf8ServiceName,
-                                      strlen(kKeychainAccountName), kKeychainAccountName,
+                                      (uint32_t) strlen(utf8ServiceName), utf8ServiceName,
+                                      (uint32_t) strlen(kKeychainAccountName), kKeychainAccountName,
                                       &passwordBuffLength, &passwordBuff,
                                       dontWantItemRef);
   if (err == noErr && passwordBuff != NULL) {

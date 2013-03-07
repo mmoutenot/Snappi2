@@ -10,7 +10,12 @@
 
 @interface SNMenuController : NSObject
 
+@property (strong, nonatomic) NSMenu *statusMenu;
+
 - (void) statusItemClicked:(NSMenuItem *) menuItem;
 - (void) statsItemClicked:(NSMenuItem *) menuItem;
-
+- (void) addDestinationMenuItems;
+- (void) updateOptionMenuItem;
+- (void)updateStatusMenuWithConnectionName:(NSString *)connectionName;
+  
 @end

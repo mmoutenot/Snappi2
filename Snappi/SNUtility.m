@@ -178,15 +178,15 @@
   NSMenu *subMenu = [[NSMenu alloc] init];
   NSMenuItem *item1 = [[NSMenuItem alloc] initWithTitle:@"Copy Shortlink" action:@selector(statusItemClicked:) keyEquivalent:@""];
   [item1 setToolTip: [[NSString alloc] initWithString: shareLink]];
-  [item1 setTarget: appDelegate.menuController];
+  [item1 setTarget: appDelegate.statusMenuController];
   NSMenuItem *item2 = [[NSMenuItem alloc] initWithTitle:@"View Stats" action:@selector(statsItemClicked:) keyEquivalent:@""];
   [item2 setToolTip: [[NSString alloc] initWithString: shareLink]];
-  [item2 setTarget: appDelegate.menuController];
+  [item2 setTarget: appDelegate.statusMenuController];
   [subMenu addItem:item1];
   [subMenu addItem:item2];
   
   [mainItem setSubmenu:subMenu];
-  [appDelegate.statusMenu addItem:mainItem];
+  [appDelegate.statusMenuController.statusMenu addItem:mainItem];
 }
 
 + (NSString *) shortenURL:(NSString *) url {
@@ -202,11 +202,10 @@
 }
 
 + (void) addToClipboard:(NSString *)shareLink{
-  SNAppDelegate *appDelegate = (SNAppDelegate *)[[NSApplication sharedApplication] delegate];
   NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
   [pasteboard clearContents];
   [pasteboard setString:shareLink forType:NSPasteboardTypeString];
-  [appDelegate.notificationController showNotificationWithTitle:@"Snappi Link Copied" informationText:shareLink];
+  [[SNNotificationController sharedNotificationController] showNotificationWithTitle:@"Snappi Link Copied" informationText:shareLink];
 }
 
 

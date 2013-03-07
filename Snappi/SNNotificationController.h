@@ -7,8 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Growl/Growl.h>
 
-@interface SNNotificationController : NSObject <NSUserNotificationCenterDelegate>
+#import "SNAttachedWindow.h"
+
+@interface SNNotificationController : NSObject <NSUserNotificationCenterDelegate, GrowlApplicationBridgeDelegate>{
+  SNAttachedWindow *attachedWindow;
+}
+
+@property (strong, nonatomic) SNAttachedWindow *attachedWindow;
+
++ (SNNotificationController*)sharedNotificationController;
+@property (weak) IBOutlet NSView *evernoteView;
 
 - (void)showNotificationWithTitle:(NSString *) title informationText:(NSString *)infoText;
 

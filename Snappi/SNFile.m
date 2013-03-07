@@ -25,7 +25,9 @@
   self = [super init];
   if (self) {
     SNAppDelegate *appDelegate = (SNAppDelegate *)[[NSApplication sharedApplication] delegate];
-    path = p;
+    NSString *urlString = [NSString stringWithUTF8String:[p cStringUsingEncoding:[NSString defaultCStringEncoding]]];
+    urlString = [[NSURL URLWithString:urlString] path];
+    path = urlString;
     name = [[p lastPathComponent] stringByDeletingPathExtension];
     ext  = [[p lastPathComponent] pathExtension];
     hash = [self getMD5FromFile:path];

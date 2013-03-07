@@ -158,18 +158,19 @@
   uploadCl.isScreenshot = NO;
   NSArray *pasteboardTypes = [NSArray arrayWithObjects:@"com.apple.pasteboard.promised-file-url", @"public.file-url", nil];
   for(NSPasteboardItem *item in [[sender draggingPasteboard] pasteboardItems]) {
-    NSString *urlString = nil;
     for(NSString *type in pasteboardTypes) {
       if([[item types] containsObject:type]) {
-        urlString = [item stringForType:type];
-        [uploadCl.files addObject:urlString];
+        NSString *urlString = [item stringForType:type];
+        SNFile *file = [[SNFile alloc] initWithPath:urlString];
+        [uploadCl.files addObject:file];
+        
         break;
       }
     }
   }
-//  SNAppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
-//  [appDelegate performSelector:@selector()]
-//  return YES;
+  SNAppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
+  [appDelegate performSelector:@selector(uploadDispatcher:) withObject:uploadCl afterDelay:1];
+  return YES;
 }
 
 // /Users/mmoutenot/Music/iTunes/iTunes Media/Music/Flying Lotus/The Do-Over Vol.1/01 Sangria Spin Cycles.mp3
