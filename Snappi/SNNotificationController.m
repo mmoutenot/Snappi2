@@ -47,9 +47,6 @@ static SNNotificationController* sharedNotificationController = nil;
   NSLog(@"Notification Fired");
 //  NSRect frame = NSMakeRect(0, 0, 250, 250);
 //  NSView *testView = [[NSView alloc] initWithFrame:frame];
-  SNServiceSelectViewController* sC = [[SNServiceSelectViewController alloc] initWithNibName:@"SNServiceSelectViewController" bundle:nil];
-  
-  [self showAttachedWindowAtStatusViewWithView:[sC view]];
 }
 
 - (void)showNotificationWithServiceSelect {

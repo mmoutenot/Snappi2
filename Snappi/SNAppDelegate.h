@@ -34,6 +34,8 @@
 
 @property (strong, nonatomic) SNService *destination;
 
+@property (strong, nonatomic) SNUploadClosure *currentUpload;
+
 - (void)connectToServiceSuccessWithName:(NSString *)connectionName;
 - (void)connectToServiceFailureWithName:(NSString *)connectionName;
 - (void)showCaptureView;

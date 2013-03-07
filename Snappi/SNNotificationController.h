@@ -21,6 +21,7 @@
 @property (weak) IBOutlet NSView *evernoteView;
 
 - (void)showNotificationWithTitle:(NSString *) title informationText:(NSString *)infoText;
+- (void)showAttachedWindowAtStatusViewWithView:(NSView *)view;
 
 @end
 

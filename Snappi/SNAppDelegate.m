@@ -15,6 +15,7 @@
 #import "SNEvernoteController.h"
 #import "SNUtility.h"
 #import "SNFile.h"
+#import "SNServiceSelectViewController.h"
 
 @implementation SNAppDelegate
 
@@ -35,8 +36,7 @@ OSStatus screenshotHotKeyHandler(EventHandlerCallRef nextHandler,
 
 - (void)createTemporaryDirectory {
   // gets the temporary directory for storing md5 hashes and screenshots
-  NSString *tempDirectoryTemplate =
-  [NSTemporaryDirectory() stringByAppendingPathComponent: @"snappitempdirectory.XXXXXX"];
+  NSString *tempDirectoryTemplate = [NSTemporaryDirectory() stringByAppendingPathComponent: @"snappitempdirectory.XXXXXX"];
   const char *tempDirectoryTemplateCString = [tempDirectoryTemplate fileSystemRepresentation];
   char *tempDirectoryNameCString = (char *)malloc(strlen(tempDirectoryTemplateCString) + 1);
   strcpy(tempDirectoryNameCString, tempDirectoryTemplateCString);
@@ -210,6 +210,11 @@ NSString * const MDBrowserShouldShowIconsKey = @"MDBrowserShouldShowIcons";
   
   [uploadCl.files addObject:file];
   [uploadCl setIsScreenshot:YES];
+  
+  _currentUpload = uploadCl;
+  
+  SNServiceSelectViewController* sC = [[SNServiceSelectViewController alloc] initWithNibName:@"SNServiceSelectViewController" bundle:nil];
+  [[SNNotificationController sharedNotificationController] showAttachedWindowAtStatusViewWithView:sC.view];
   
 //  [self uploadDispatcher:uploadCl];
 }

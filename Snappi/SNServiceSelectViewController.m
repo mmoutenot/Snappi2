@@ -7,6 +7,8 @@
 //
 
 #import "SNServiceSelectViewController.h"
+#import "SNEvernoteController.h"
+#import "SNAppDelegate.h"
 
 @interface SNServiceSelectViewController ()
 
@@ -23,5 +25,15 @@
     
     return self;
 }
+
+- (IBAction)evernoteDispatchCallback:(id)sender{
+  SNAppDelegate *ad = (SNAppDelegate *)[[NSApplication sharedApplication] delegate];
+  [[SNEvernoteController sharedInstance] performSelectorInBackground:@selector(upload:) withObject:ad.currentUpload];
+}
+
+- (IBAction)twitterDispatchCallback:(id)sender{
+  
+}
+
 
 @end
